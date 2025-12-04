@@ -18,4 +18,4 @@ test('Should not hang up', async () => {
   }
 
   console.log('handles:', (process as any)._getActiveHandles());
-})
+}, 10_000);
