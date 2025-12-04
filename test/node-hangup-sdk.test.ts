@@ -2,16 +2,20 @@
 // import { Template } from 'aws-cdk-lib/assertions';
 // import * as NodeHangupSdk from '../lib/node-hangup-sdk-stack';
 
-// example test. To run these tests, uncomment this file along with the
-// example resource in lib/node-hangup-sdk-stack.ts
-test('SQS Queue Created', () => {
-//   const app = new cdk.App();
-//     // WHEN
-//   const stack = new NodeHangupSdk.NodeHangupSdkStack(app, 'MyTestStack');
-//     // THEN
-//   const template = Template.fromStack(stack);
 
-//   template.hasResourceProperties('AWS::SQS::Queue', {
-//     VisibilityTimeout: 300
-//   });
-});
+import { MetadataService } from "@aws-sdk/ec2-metadata-service";
+
+test('Should not hang up', async () => {
+  try {
+    const metadataService = new MetadataService({
+      httpOptions: {
+        timeout: 1000,
+      },
+    });
+    await metadataService.fetchMetadataToken();
+  } catch (error) {
+    // Not really interested in errors here
+  }
+
+  console.log('handles:', (process as any)._getActiveHandles());
+})
