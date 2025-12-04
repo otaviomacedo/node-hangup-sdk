@@ -1,9 +1,6 @@
 {
   "name": "node-hangup-sdk",
   "version": "0.1.0",
-  "bin": {
-    "node-hangup-sdk": "bin/node-hangup-sdk.js"
-  },
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
@@ -15,13 +12,12 @@
     "@types/node": "22.7.9",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
-    "aws-cdk": "2.1029.2",
     "ts-node": "^10.9.2",
     "typescript": "~5.6.3"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.214.0",
-    "constructs": "^10.0.0",
-    "@aws-sdk/ec2-metadata-service": "^3.940.0"
+    "@aws-sdk/ec2-metadata-service": "^3.940.0",
+    "@types/wtfnode": "^0.10.0",
+    "wtfnode": "^0.10.1"
   }
 }

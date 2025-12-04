@@ -2,7 +2,7 @@
 // import { Template } from 'aws-cdk-lib/assertions';
 // import * as NodeHangupSdk from '../lib/node-hangup-sdk-stack';
 
-
+// import * as wtf from 'wtfnode';
 import { MetadataService } from "@aws-sdk/ec2-metadata-service";
 
 test('Should not hang up', async () => {
@@ -14,8 +14,8 @@ test('Should not hang up', async () => {
     });
     await metadataService.fetchMetadataToken();
   } catch (error) {
-    // Not really interested in errors here
+    throw error;
   }
 
-  console.log('handles:', (process as any)._getActiveHandles());
-}, 10_000);
+}, 5_000);
+
