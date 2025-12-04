@@ -6,12 +6,12 @@ test('Should not hang up', async () => {
       httpOptions: {
         timeout: 1000,
       },
-      socketTimeout: 7000,
+      socketTimeout: 800,
     });
     await metadataService.fetchMetadataToken();
   } catch (error) {
     // Not really interested in errors here
   }
 
-  // console.log('handles:', (process as any)._getActiveHandles());
+  console.log('handles:', (process as any)._getActiveHandles());
 }, 10_000);

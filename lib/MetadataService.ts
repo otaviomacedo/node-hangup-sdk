@@ -91,7 +91,6 @@ export class MetadataService {
       requestTimeout: httpOptions?.timeout,
       connectionTimeout: httpOptions?.timeout,
       socketTimeout,
-
     });
     const endpointUrl = new URL(endpoint!);
     const tokenRequest = new HttpRequest({
@@ -119,6 +118,13 @@ export class MetadataService {
         throw new Error(`Error fetching metadata token: ${error}. disableFetchToken is enabled`);
       }
       throw new Error(`Error fetching metadata token: ${error}`);
+    } finally {
+      try {
+        handler.destroy();
+        console.log('Handler destroyed successfully.');
+      } catch (error) {
+        console.log('Handler could not be destroyed: ', error);
+      }
     }
   }
 }
