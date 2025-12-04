@@ -20,5 +20,8 @@ jobs:
       - name: Run tests
         run: |
           for b in $(seq 1 10); do
+            echo "================================================================"
+            echo "Running with breaks $b"
+            echo "================================================================"
             time env BREAKER=$b node_modules/.bin/jest --detectOpenHandles
           done
