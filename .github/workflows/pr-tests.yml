@@ -18,4 +18,7 @@ jobs:
           cache: 'npm'
 
       - name: Run tests
-        run: time node_modules/.bin/jest --detectOpenHandles
+        run: |
+          for b in $(seq 1 10); do
+            time env BREAKER=$b node_modules/.bin/jest --detectOpenHandles
+          done
