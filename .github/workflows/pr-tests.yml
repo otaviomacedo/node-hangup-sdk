@@ -23,5 +23,5 @@ jobs:
             echo "================================================================"
             echo "Running with breaks $b"
             echo "================================================================"
-            time env BREAKER=$b node_modules/.bin/jest --detectOpenHandles || echo "Well that failed"
+            time env BREAKER=$b node_modules/.bin/jest --detectOpenHandles 2>&1 || echo "Well that failed"
           done
