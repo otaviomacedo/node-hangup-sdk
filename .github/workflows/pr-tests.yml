@@ -21,4 +21,4 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: time npx jest
+        run: time npx jest --detectOpenHandles
