@@ -26,6 +26,7 @@ export class MetadataService {
         },
         ec2MetadataV1Disabled:
           options?.ec2MetadataV1Disabled ?? (await loadConfig(IMDSv1_DISABLED_SELECTORS, { profile })()),
+        socketTimeout: options.socketTimeout,
       };
     })();
     this.disableFetchToken = options?.disableFetchToken || false;
